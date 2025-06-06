@@ -9,16 +9,22 @@ export const WordChanger: React.FC<WordChangerProps> = ({ styles }: WordChangerP
   const adjectives =["impactful", "revenue generating", "beautiful"];
 
   const [adjectiveNum, setAdjectiveNum] = React.useState(0);
+  const [isVisible, setIsVisible] = React.useState(true);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
-      setAdjectiveNum(prev => (prev + 1 % adjectives.length))
+      setIsVisible(false);
+
+      setTimeout(() => {
+        setAdjectiveNum(prev => (prev + 1) % adjectives.length)
+        setIsVisible(true);
+      }, 300);
     }, 2000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <p className={'mt-4 text-2xl mb-40' + styles}>{adjectives[adjectiveNum]}</p>
+    <p className={`mt-4 text-6xl mb-40 ${styles} bg-clip-text text-transparent font-bold transition-opacity duration-300 ${isVisible ? `opacity-100` : `opacity-0`}`}>{adjectives[adjectiveNum]}</p>
   )
 }
