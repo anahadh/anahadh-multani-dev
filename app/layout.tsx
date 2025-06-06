@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import "./globals.css";
+import { ThemeProvider } from "./ThemeContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -39,25 +40,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        <div className="w-screen p-10 flex border-b-8 items-center">
-          <div className={`${navbarItemStyles} bg-clip-text text-transparent`}>
-            <p className="text-3xl font-bold">anahadh.multani.dev</p>
-          </div>
+      <ThemeProvider>
+        <body className={`antialiased`}>
+          <div className="w-screen p-10 flex border-b-8 items-center">
+            <div className={`${navbarItemStyles} bg-clip-text text-transparent`}>
+              <p className="text-3xl font-bold">anahadh.multani.dev</p>
+            </div>
 
-          <nav className="relative flex p-5 text-purple gap-x-10 ml-auto items-center">
-            {navButtons.map((button) => {
-              return <div className="relative group" key={button.name}>
-                <a href={button.href} key={button.name} className="text-2xl font-black relative z-0">
-                  {button.name}
-                </a>
-                <div className={`absolute bottom-[-5] left-0 w-full h-1 ${navbarItemStyles} transform w-0 group-hover:w-full transition-all duration-300 ease-in-out`}></div>
-              </div>
-            })}
-          </nav>
-        </div>
-        {children}
-      </body>
+            <nav className="relative flex p-5 text-purple gap-x-10 ml-auto items-center">
+              {navButtons.map((button) => {
+                return <div className="relative group" key={button.name}>
+                  <a href={button.href} key={button.name} className="text-2xl font-black relative z-0">
+                    {button.name}
+                  </a>
+                  <div className={`absolute bottom-[-5] left-0 w-full h-1 ${navbarItemStyles} transform w-0 group-hover:w-full transition-all duration-300 ease-in-out`}></div>
+                </div>
+              })}
+            </nav>
+          </div>
+          {children}
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
