@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 
-type WordChangerProps = {
+export type WordChangerProps = {
   styles?: string;
 }
 
@@ -25,6 +25,6 @@ export const WordChanger: React.FC<WordChangerProps> = ({ styles }: WordChangerP
   }, []);
 
   return (
-    <p className={`mt-4 text-6xl mb-40 ${styles} bg-clip-text text-transparent font-bold transition-opacity duration-300 ${isVisible ? `opacity-100` : `opacity-0`}`}>{adjectives[adjectiveNum]}</p>
+    <p className={`mt-4 pb-2 text-6xl ${styles} bg-clip-text text-transparent font-bold transition-opacity duration-300 ${isVisible ? `opacity-100` : `opacity-0`}`}>{adjectives[adjectiveNum]}</p>
   )
 }
