@@ -1,11 +1,14 @@
 "use client";
 import React from 'react'
-
-type ColorTheme = 'dreamscape' | 'tidepool' | 'firelight' | 'skyburst' | 'nightfall';
+import { themes, ColorTheme } from './themes';
 
 type ThemeContextType = {
   toggleColorTheme: (theme: ColorTheme) => void;
   colorTheme: ColorTheme;
+  colors: {
+    background: string;
+    hoverBackground: string;
+  }
 }; 
 
 type ThemeProviderProps = {
@@ -21,8 +24,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     setColorTheme(theme);
   }
 
+  const colors = themes[colorTheme];
+
   return (
-    <ThemeContext.Provider value={{ colorTheme, toggleColorTheme }}>
+    <ThemeContext.Provider value={{ colorTheme, toggleColorTheme, colors }}>
         {children}
     </ThemeContext.Provider>
   );
