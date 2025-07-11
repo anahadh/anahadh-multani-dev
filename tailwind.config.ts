@@ -43,6 +43,10 @@ module.exports = {
           900: '#7C2D12',
         },
       },
+      fontFamily: {
+        arvo: ['var(--font-arvo)', 'serif'],
+        notoSans: ['var(--font-noto-sans)', 'sans-serif'],
+      },
     },
   },
   plugins: [],
