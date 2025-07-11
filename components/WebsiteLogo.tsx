@@ -12,10 +12,7 @@ export const WebsiteLogo: React.FC = () => {
     
     return (
         <div className={gradientClass}>
-            <div className="absolute -bottom-4 left-0 text-xs text-black">
-                Current theme: {colorTheme}
-            </div>
-            <p className="text-3xl font-bold">anahadh.multani.dev</p>
+            <p className="text-3xl font-bold font-arvo">anahadh.multani.dev</p>
         </div>
     )
 }
