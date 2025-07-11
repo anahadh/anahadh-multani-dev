@@ -47,6 +47,15 @@ module.exports = {
         arvo: ['var(--font-arvo)', 'serif'],
         notoSans: ['var(--font-noto-sans)', 'sans-serif'],
       },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': {transform: 'rotate(0deg)'},
+          '50%': {transform: 'rotate(10deg)'},
+        },
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
