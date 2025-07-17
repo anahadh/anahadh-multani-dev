@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { useTheme } from '../contexts/ThemeContext'
 import { themes } from '../contexts/themes'
 
@@ -28,7 +29,7 @@ const navButtons: NavButton[] = [
 ]
 
 export const Navbar = () => {
-    const { colorTheme } = useTheme();
+    const { colorTheme, toggleColorTheme } = useTheme();
     const theme = themes[colorTheme];
 
     const handleNavClick = (id: string) => {
@@ -37,15 +38,37 @@ export const Navbar = () => {
     };    
 
     return (
-        <nav className="relative flex p-5 text-purple gap-x-10 ml-auto items-center">
-            {navButtons.map((button) => {
-                return <div className="relative group" key={button.name}>
-                    <button onClick={() => handleNavClick(button.href)} key={button.name} className="text-2xl font-black font-notoSans relative z-0">
-                        {button.name}
-                    </button>
-                    <div className={`absolute bottom-[-5] left-0 h-1 bg-gradient-to-r ${theme.background} transform w-0 group-hover:w-full transition-all duration-300 ease-in-out`}></div>
-                </div>
-            })}
+        <nav className="relative flex p-5 text-black gap-7 ml-auto items-center">
+            <div className='flex gap-x-10 '>
+              {navButtons.map((button) => {
+                  return <div className="relative group" key={button.name}>
+                      <button onClick={() => handleNavClick(button.href)} key={button.name} className="text-2xl font-black font-notoSans relative z-0">
+                          {button.name}
+                      </button>
+                      <div className={`absolute bottom-[-5] left-0 h-1 bg-gradient-to-r ${theme.background} transform w-0 group-hover:w-full transition-all duration-300 ease-in-out`}></div>
+                  </div>
+              })}
+            </div>
+            <DropdownMenu.Root>
+                <DropdownMenu.Trigger className={`text-2xl font-black relative z-0 rounded-full`}>
+                  <div className={`h-10 aspect-square rounded-full bg-gradient-to-r ${theme.background} shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.15] hover:shadow-xl active:scale-105`}>
+                    
+                  </div>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Content className="bg-white rounded shadow-xl mt-4">
+                    {Object.keys(themes).map((themeKey) => (
+                        <DropdownMenu.Item
+                            key={themeKey}
+                            onClick={() => {
+                                toggleColorTheme(themeKey as keyof typeof themes);
+                            }}
+                            className={`p-2 hover:bg-gray-100`}
+                        >
+                            {themeKey}
+                        </DropdownMenu.Item>
+                    ))}
+                </DropdownMenu.Content>
+            </DropdownMenu.Root>
         </nav>
     )
 }

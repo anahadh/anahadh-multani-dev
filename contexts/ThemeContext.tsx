@@ -14,7 +14,7 @@ type ThemeProviderProps = {
 export const ThemeContext = React.createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [colorTheme, setColorTheme] = React.useState<ColorTheme>('tidepool');
+  const [colorTheme, setColorTheme] = React.useState<ColorTheme>('dreamscape');
 
   const toggleColorTheme = (theme: ColorTheme) => {
     setColorTheme(theme);
