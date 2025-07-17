@@ -11,19 +11,19 @@ type NavButton = {
 const navButtons: NavButton[] = [
   {
     name: "Home",
-    href: "/",
+    href: "#home",
   },
   {
     name: "About",
-    href: "/",
+    href: "#about",
   },
   {
     name: "Projects",
-    href: "/",
+    href: "#projects",
   },
   {
     name: "Contact",
-    href: "/",
+    href: "#contact",
   }
 ]
 
@@ -31,13 +31,18 @@ export const Navbar = () => {
     const { colorTheme } = useTheme();
     const theme = themes[colorTheme];
 
+    const handleNavClick = (id: string) => {
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    };    
+
     return (
         <nav className="relative flex p-5 text-purple gap-x-10 ml-auto items-center">
             {navButtons.map((button) => {
                 return <div className="relative group" key={button.name}>
-                    <a href={button.href} key={button.name} className="text-2xl font-black font-notoSans relative z-0">
+                    <button onClick={() => handleNavClick(button.href)} key={button.name} className="text-2xl font-black font-notoSans relative z-0">
                         {button.name}
-                    </a>
+                    </button>
                     <div className={`absolute bottom-[-5] left-0 h-1 bg-gradient-to-r ${theme.background} transform w-0 group-hover:w-full transition-all duration-300 ease-in-out`}></div>
                 </div>
             })}

@@ -8,7 +8,7 @@ export type WordChangerProps = {
 }
 
 export const WordChanger: React.FC<WordChangerProps> = ({ styles }: WordChangerProps) => {
-  const adjectives =["impactful", "revenue generating", "beautiful"];
+  const adjectives =["impactful", "revenue generating", "beautiful", "engaging"];
   const { colorTheme } = useTheme();
   const theme = themes[colorTheme];
 
@@ -29,6 +29,6 @@ export const WordChanger: React.FC<WordChangerProps> = ({ styles }: WordChangerP
   }, []);
 
   return (
-    <p className={`mt-4 pb-2 text-6xl font-arvo ${styles} ${theme.background} bg-clip-text text-transparent font-bold transition-opacity duration-300 ${isVisible ? `opacity-100` : `opacity-0`}`}>{adjectives[adjectiveNum]}</p>
+    <p className={`mt-4 pb-2 text-7xl font-arvo ${styles} ${theme.background} bg-clip-text text-transparent font-bold transition-opacity duration-300 ${isVisible ? `opacity-100` : `opacity-0`}`}>{adjectives[adjectiveNum]}</p>
   )
 }

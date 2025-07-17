@@ -31,8 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider>
-        <body className={`${arvo.variable} ${notoSans.variable}`} cz-shortcut-listen="true">
-          <div className="w-screen p-10 flex border-b-8 items-center">
+        <body className={`${arvo.variable} ${notoSans.variable} relative`} cz-shortcut-listen="true">
+          <div className="w-screen p-10 flex fixed top-0 border-b-8 items-center bg-white">
             <WebsiteLogo />
             <Navbar />
           </div>
