@@ -3,9 +3,11 @@
     "/page": [
       "static/chunks/_22d2ba._.js",
       "static/chunks/app_favicon_ico_mjs_53e3fe._.js",
-      "static/chunks/app_globals_73c377.css",
-      "static/chunks/app_layout_tsx_83fc40._.js",
+      "static/chunks/[root of the server]__93bb3f._.css",
+      "static/chunks/_f3a903._.js",
       "static/chunks/app_layout_tsx_61af54._.js",
+      "static/chunks/_3346fa._.js",
+      "static/chunks/app_page_tsx_d375d9._.js",
       "static/chunks/node_modules_next_dist_compiled_react-dom_1f56dc._.js",
       "static/chunks/node_modules_next_dist_compiled_107ce8._.js",
       "static/chunks/node_modules_next_dist_client_523921._.js",
