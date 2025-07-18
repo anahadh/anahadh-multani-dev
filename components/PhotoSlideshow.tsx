@@ -8,8 +8,8 @@ export const PhotoSlideshow: React.FC = () => {
     const theme = themes[colorTheme];
 
     return (
-        <div className={`flex flex-col justify-center items-center w-1/2 mx-auto bg-gradient-to-r ${theme.background}`}>
-            <p className='text-5xl'>Image Placeholder</p>
+        <div className={`flex flex-col justify-end items-center w-5/12 bg-gradient-to-r ${theme.background}`}>
+            <img src="/SelfPortrait.png" alt="Anahadh Multani" className="w-auto h-auto max-h-[70vh] object-cover rounded-lg" />
         </div>
     )
 }
