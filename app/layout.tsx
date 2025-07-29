@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import React from "react";
 import "./globals.css";
+import { TitleComponent } from "@/components/TitleComponent";
 import { ThemeProvider } from "../contexts/ThemeContext";
-import { WebsiteLogo } from "../components/WebsiteLogo";
 import { Navbar } from "../components/Navbar";
 import { Arvo, Noto_Sans } from "next/font/google";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
       <ThemeProvider>
         <body className={`${arvo.variable} ${notoSans.variable} relative`} cz-shortcut-listen="true">
           <div className="w-screen p-10 flex fixed top-0 border-b-8 items-center bg-white">
-            <WebsiteLogo />
+            <TitleComponent title='anahadh.multani.dev' size={3} style='gradient' />
             <Navbar />
           </div>
           {children}

@@ -9,7 +9,7 @@ export const PhotoSlideshow: React.FC = () => {
 
     return (
         <div className={`flex flex-col justify-end items-center w-5/12 bg-gradient-to-r ${theme.background}`}>
-            <img src="/SelfPortrait.png" alt="Anahadh Multani" className="w-auto h-auto max-h-[70vh] object-cover rounded-lg" />
+            <img src="/SelfPortrait.png" alt="Anahadh Multani" className="w-auto h-auto max-h-[70vh] object-cover" />
         </div>
     )
 }

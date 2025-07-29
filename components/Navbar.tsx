@@ -51,20 +51,21 @@ export const Navbar = () => {
             </div>
             <DropdownMenu.Root>
                 <DropdownMenu.Trigger className={`text-2xl font-black relative z-0 rounded-full`}>
-                  <div className={`h-10 aspect-square rounded-full bg-gradient-to-r ${theme.background} shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.15] hover:shadow-xl active:scale-105`}>
-                    
-                  </div>
+                  <div className={`h-10 aspect-square rounded-full bg-gradient-to-r ${theme.background} shadow-lg transition-all duration-200 ease-in-out hover:scale-[1.15] hover:shadow-xl active:scale-105`} />
                 </DropdownMenu.Trigger>
-                <DropdownMenu.Content className="bg-white rounded shadow-xl mt-4">
+                <DropdownMenu.Content className="bg-white rounded-xl shadow-xl mt-4">
                     {Object.keys(themes).map((themeKey) => (
                         <DropdownMenu.Item
                             key={themeKey}
                             onClick={() => {
                                 toggleColorTheme(themeKey as keyof typeof themes);
                             }}
-                            className={`p-2 hover:bg-gray-100`}
+                            className={`flex flex-row justify-between items-center gap-5 p-3 group transition-opacity duration-200 ease-in-out hover:bg-gray-100 font-notoSans cursor-pointer`}
                         >
+                          <div className={`bg-gradient-to-r ${themes[themeKey as keyof typeof themes].background} rounded-full h-3 w-3 transition-transform duration-200 ease-in-out group-hover:scale-110`}></div>  
+                          <div className={`bg-gradient-to-r ${themes[themeKey as keyof typeof themes].background} bg-clip-text transition-all duration-200 ease-in-out group-hover:text-transparent font-bold`}>
                             {themeKey}
+                          </div>
                         </DropdownMenu.Item>
                     ))}
                 </DropdownMenu.Content>
